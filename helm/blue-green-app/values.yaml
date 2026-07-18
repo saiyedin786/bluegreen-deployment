@@ -1,0 +1,29 @@
+replicaCount: 2
+
+image:
+  repository: 254292659362.dkr.ecr.ap-south-1.amazonaws.com/node-app
+  blueTag: blue
+  greenTag: green
+  pullPolicy: Always
+
+service:
+  type: LoadBalancer
+  port: 80
+  targetPort: 3000
+
+activeColor: blue
+
+blue:
+  enabled: true
+
+green:
+  enabled: true
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+  limits:
+    cpu: 250m
+    memory: 256Mi
